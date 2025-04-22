@@ -1,0 +1,143 @@
+import React from 'react'
+
+export default function DonorRegistrationForm() {
+    return (
+        <div className="bg-white min-h-screen p-6 flex items-center justify-center">
+            <div className="max-w-3xl w-full bg-[#AEDFF7] shadow-lg rounded-2xl p-8">
+                <h2 className="text-2xl font-bold text-[#1E2A38] mb-6 text-center">
+                    Donor Registration
+                </h2>
+                <form className="space-y-4">
+                    {/* Full Name */}
+                    <div>
+                        <label className="block text-[#1E2A38] mb-1">Full Name</label>
+                        <input
+                            type="text"
+                            className="w-full p-2 border border-[#E0E0E0] rounded-lg bg-[#E0E0E0]"
+                            placeholder="Enter your full name"
+                        />
+                    </div>
+
+                    {/* Date of Birth */}
+                    <div>
+                        <label className="block text-[#1E2A38] mb-1">Date of Birth</label>
+                        <input
+                            type="date"
+                            className="w-full p-2 border border-[#E0E0E0] rounded-lg  bg-[#E0E0E0]"
+                        />
+                    </div>
+
+                    {/* Gender */}
+                    <div>
+                        <label className="block text-[#1E2A38] mb-1">Gender</label>
+                        <select className="w-full p-2 border border-[#E0E0E0] rounded-lg  bg-[#E0E0E0]">
+                            <option>Select Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    {/* Contact Info */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label className="block text-[#1E2A38] mb-1">Contact Number</label>
+                            <input
+                                type="text"
+                                className="w-full p-2 border border-[#E0E0E0] rounded-lg  bg-[#E0E0E0]"
+                                placeholder="+92-300-0000000"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-[#1E2A38] mb-1">Email Address</label>
+                            <input
+                                type="email"
+                                className="w-full p-2 border border-[#E0E0E0] rounded-lg  bg-[#E0E0E0]"
+                                placeholder="you@example.com"
+                                
+                            />
+                        </div>
+                    </div>
+
+                    {/* Location Info */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label className="block text-[#1E2A38] mb-1">City</label>
+                            <input
+                                type="text"
+                                className="w-full p-2 border border-[#E0E0E0] rounded-lg  bg-[#E0E0E0]"
+                                placeholder="Enter your city"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-[#1E2A38] mb-1">ZIP / Postal Code</label>
+                            <input
+                                type="text"
+                                className="w-full p-2 border border-[#E0E0E0] rounded-lg  bg-[#E0E0E0]"
+                                placeholder="e.g., 71000"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Blood Group */}
+                    <div>
+                        <label className="block text-[#1E2A38] mb-1">Blood Group</label>
+                        <select className="w-full p-2 border border-[#E0E0E0] rounded-lg  bg-[#E0E0E0]">
+                            <option>Select Blood Group</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                        </select>
+                    </div>
+
+                    {/* Last Donation Date */}
+                    <div>
+                        <label className="block text-[#1E2A38] mb-1">Last Donation Date</label>
+                        <input
+                            type="date"
+                            className="w-full p-2 border border-[#E0E0E0] rounded-lg  bg-[#E0E0E0]"
+                        />
+                    </div>
+
+                    {/* Health Questions */}
+                    <div className="space-y-2">
+                        <label className="block text-[#1E2A38] font-medium mb-1">
+                            Health & Eligibility
+                        </label>
+                        <label className="flex items-center gap-2 text-sm">
+                            <input type="checkbox" />
+                            I am currently healthy
+                        </label>
+                        <label className="flex items-center gap-2 text-sm">
+                            <input type="checkbox" />
+                            I have no chronic illness or recent infections
+                        </label>
+                        <label className="flex items-center gap-2 text-sm">
+                            <input type="checkbox" />
+                            I have not donated blood in the last 3 months
+                        </label>
+                        <label className="flex items-center gap-2 text-sm">
+                            <input type="checkbox" />
+                            I consent to be contacted for blood donation
+                        </label>
+                    </div>
+
+                    {/* Submit */}
+                    <div className="pt-4 text-center">
+                        <button
+                            type="submit"
+                            className="bg-[#DC143C] hover:bg-red-700 text-white px-6 py-2 rounded-lg text-lg transition duration-200"
+                        >
+                            Register as Donor
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    );
+}
