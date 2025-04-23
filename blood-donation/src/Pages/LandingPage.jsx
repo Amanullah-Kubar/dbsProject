@@ -16,7 +16,7 @@ const features = [
     icon: <FaHandHoldingMedical className="text-[#DC143C] w-10 h-10" />,
     bg: '#FFFFFF',
     buttonText: 'Patient Request',
-    link:'/PatientRequest',
+    link:'/PatientRequestForm',
   },
   {
     title: 'Inventory',
