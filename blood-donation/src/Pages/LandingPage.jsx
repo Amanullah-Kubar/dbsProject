@@ -23,7 +23,7 @@ const features = [
     icon: <FaBriefcaseMedical className="text-[#DC143C] w-10 h-10" />,
     bg: '#FFFFFF',
     buttonText: 'Inventory',
-    link:'/Inventory',
+    link:'/InventoryDashboard',
   },
 ];
 
