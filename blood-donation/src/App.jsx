@@ -19,7 +19,7 @@ export default function App() {
               <PatientRequestForm />
             } />
           <Route
-            path="/Inventory"
+            path="/InventoryDashboard"
             element={
               <InventoryDashboard />
             }
