@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import PatientRequestForm from './Pages/PatientRequestForm'
 import InventoryDashboard from './Pages/InventoryDashboard'
+import MatchingDonorsList from './Pages/MatchingDonorsList'
 
 export default function App() {
   return (
@@ -23,7 +24,13 @@ export default function App() {
             element={
               <InventoryDashboard />
             }
-          ></Route>
+          />
+          <Route
+            path="/donorsList"
+            element={
+              <MatchingDonorsList />
+            }
+          />
         </Routes>
       </Router>
 
