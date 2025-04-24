@@ -30,15 +30,30 @@ export default function DonorRegistrationForm() {
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
+      
+        const payload = {
+          name: formData.name,
+          blood_group: formData.bloodGroup,
+          contact_number: formData.contactNumber,
+          email: formData.email,
+          city: formData.city,
+          postal_code: formData.postalCode,
+          last_donation_date: formData.lastDonationDate,
+          healthy: formData.healthy,
+          no_chronic_illness: formData.noChronicIllness,
+          not_donated_in_3_months: formData.notDonatedIn3Months,
+          consent_to_contact: formData.consentToContact,
+        };
+      
         try {
-            await axios.post('http://localhost:5000/api/donors', formData);
-            alert('Donor registered successfully!');
-          } catch (error) {
-            console.error('Error:', error.response?.data?.details);
-            alert(`Registration failed: ${error.response?.data?.details}`);
-          }
-          
-    };
+          await axios.post('http://localhost:5000/api/donors', payload);
+          alert('Donor registered successfully!');
+        } catch (error) {
+          console.error('Error:', error.response?.data?.details);
+          alert(`Registration failed: ${error.response?.data?.details}`);
+        }
+      };
+      
     return (
         <div className="bg-white min-h-screen p-6 flex items-center justify-center">
             <div className="max-w-3xl w-full bg-[#AEDFF7] shadow-lg rounded-2xl p-8">
@@ -50,7 +65,7 @@ export default function DonorRegistrationForm() {
                     <div>
                         <label className="block text-[#1E2A38] mb-1">Full Name</label>
                         <input
-                            required='true'
+                            required={true}
                             type="text"
                             name="name"
                             value={formData.name}
@@ -64,7 +79,7 @@ export default function DonorRegistrationForm() {
                     <div>
                         <label className="block text-[#1E2A38] mb-1">Date of Birth</label>
                         <input
-                            required='true'
+                            required={true}
                             type="date"
                             name="dob"
                             value={formData.dob}
@@ -94,7 +109,7 @@ export default function DonorRegistrationForm() {
                         <div>
                             <label className="block text-[#1E2A38] mb-1">Contact Number</label>
                             <input
-                                required='true'
+                                required={true}
                                 type="text"
                                 name="contactNumber"
                                 value={formData.contactNumber}
@@ -106,7 +121,7 @@ export default function DonorRegistrationForm() {
                         <div>
                             <label className="block text-[#1E2A38] mb-1">Email Address</label>
                             <input
-                                required='true'
+                                required={true}
                                 type="email"
                                 name="email"
                                 value={formData.email}
@@ -122,7 +137,7 @@ export default function DonorRegistrationForm() {
                         <div>
                             <label className="block text-[#1E2A38] mb-1">City</label>
                             <input
-                                required='true'
+                                required={true}
                                 type="text"
                                 name="city"
                                 value={formData.city}
@@ -134,7 +149,7 @@ export default function DonorRegistrationForm() {
                         <div>
                             <label className="block text-[#1E2A38] mb-1">ZIP / Postal Code</label>
                             <input
-                                required='true'
+                                required={true}
                                 type="text"
                                 name="postalCode"
                                 value={formData.postalCode}
@@ -170,7 +185,7 @@ export default function DonorRegistrationForm() {
                     <div>
                         <label className="block text-[#1E2A38] mb-1">Last Donation Date</label>
                         <input
-                            required='true'
+                            required={true}
                             type="date"
                             name="lastDonationDate"
                             value={formData.lastDonationDate}
@@ -186,7 +201,7 @@ export default function DonorRegistrationForm() {
                         </label>
                         <label className="flex items-center gap-2 text-sm">
                             <input
-                                required='true'
+                                required={true}
                                 type="checkbox"
                                 name="healthy"
                                 checked={formData.healthy}
@@ -196,7 +211,7 @@ export default function DonorRegistrationForm() {
                         </label>
                         <label className="flex items-center gap-2 text-sm">
                             <input
-                                required='true'
+                                required={true}
                                 type="checkbox"
                                 name="noChronicIllness"
                                 checked={formData.noChronicIllness}
@@ -206,7 +221,7 @@ export default function DonorRegistrationForm() {
                         </label>
                         <label className="flex items-center gap-2 text-sm">
                             <input
-                                required='true'
+                                required={true}
                                 type="checkbox"
                                 name="notDonatedIn3Months"
                                 checked={formData.notDonatedIn3Months}
@@ -216,7 +231,7 @@ export default function DonorRegistrationForm() {
                         </label>
                         <label className="flex items-center gap-2 text-sm">
                             <input
-                                required='true'
+                                required={true}
                                 type="checkbox"
                                 name="consentToContact"
                                 checked={formData.consentToContact}

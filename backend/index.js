@@ -28,11 +28,11 @@ db.connect((err) => {
 // API Routes
 
 // Get all donors
-app.get('/api/donors', (req, res) => {
+app.get('/api/donorsdetails', (req, res) => {
   const query = 'SELECT * FROM donors';
   db.query(query, (err, results) => {
     if (err) {
-      return res.status(500).json({ error: 'Database query failed' });
+        return res.status(500).json({ error: 'Failed to add donor', details: err.message });
     }
     res.json(results);
   });
