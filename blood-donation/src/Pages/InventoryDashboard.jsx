@@ -7,6 +7,8 @@ const mockData = [
   { id: 4, bloodType: 'AB-', units: 3, expiryDate: '2025-04-28' },
 ];
 
+
+
 const bloodTypes = ['All', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
 
 const InventoryDashboard = () => {
