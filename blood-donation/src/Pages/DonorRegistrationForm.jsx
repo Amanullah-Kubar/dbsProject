@@ -1,6 +1,22 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 export default function DonorRegistrationForm() {
+
+    function calculateAge(dobString) {
+        const dob = new Date(dobString);
+        const today = new Date();
+
+        let age = today.getFullYear() - dob.getFullYear();
+        const monthDiff = today.getMonth() - dob.getMonth();
+        const dayDiff = today.getDate() - dob.getDate();
+
+        // Adjust if the birthday hasn't occurred yet this year
+        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+            age--;
+        }
+
+        return age;
+    }
     // State for form data
     const [formData, setFormData] = useState({
         name: '',
@@ -30,30 +46,32 @@ export default function DonorRegistrationForm() {
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-      
+
         const payload = {
-          name: formData.name,
-          blood_group: formData.bloodGroup,
-          contact_number: formData.contactNumber,
-          email: formData.email,
-          city: formData.city,
-          postal_code: formData.postalCode,
-          last_donation_date: formData.lastDonationDate,
-          healthy: formData.healthy,
-          no_chronic_illness: formData.noChronicIllness,
-          not_donated_in_3_months: formData.notDonatedIn3Months,
-          consent_to_contact: formData.consentToContact,
+            name: formData.name,
+            blood_type: formData.bloodGroup,
+            phone: formData.contactNumber,
+            gender: formData.gender,
+            email: formData.email,
+            city: formData.city,
+            age: calculateAge(formData.dob),
+            postal_code: formData.postalCode,
+            last_donated: formData.lastDonationDate,
+            healthy: formData.healthy,
+            no_chronic_illness: formData.noChronicIllness,
+            not_donated_in_3_months: formData.notDonatedIn3Months,
+            consent_to_contact: formData.consentToContact,
         };
-      
+
         try {
-          await axios.post('http://localhost:5000/api/donors', payload);
-          alert('Donor registered successfully!');
+            await axios.post('http://localhost:5000/api/register_donor', payload);
+            alert('Donor registered successfully!');
         } catch (error) {
-          console.error('Error:', error.response?.data?.details);
-          alert(`Registration failed: ${error.response?.data?.details}`);
+            console.error('Error:', error.response?.data?.details);
+            alert(`Registration failed: ${error.response?.data?.details}`);
         }
-      };
-      
+    };
+
     return (
         <div className="bg-white min-h-screen p-6 flex items-center justify-center">
             <div className="max-w-3xl w-full bg-[#AEDFF7] shadow-lg rounded-2xl p-8">

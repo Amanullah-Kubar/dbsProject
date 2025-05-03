@@ -5,15 +5,23 @@ import { Route, Routes } from 'react-router-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import PatientRequestForm from './Pages/PatientRequestForm'
 import InventoryDashboard from './Pages/InventoryDashboard'
-import MatchingDonorsList from './Pages/MatchingDonorsList'
+import DonorList from './Pages/NoStockMessage'
 
 export default function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/DonorRegistrationForm" element={<DonorRegistrationForm />} />
+          <Route
+            path="/"
+            element={
+              <LandingPage />
+            } />
+          <Route
+            path="/DonorRegistrationForm"
+            element={
+              <DonorRegistrationForm />
+            } />
           <Route
             path="/PatientRequestForm"
             element={
@@ -25,14 +33,18 @@ export default function App() {
               <InventoryDashboard />
             }
           />
+
           <Route
-            path="/donorsList"
+            path="/donorList"
             element={
-              <MatchingDonorsList />
+              <DonorList />
             }
           />
+
         </Routes>
       </Router>
+
+
 
 
 
